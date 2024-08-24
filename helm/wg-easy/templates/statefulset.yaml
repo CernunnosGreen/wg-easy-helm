@@ -65,8 +65,8 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
           {{- range $key, $value := .Values.environmentVariables }}
-          - name: {{ $key }}
-            value: {{ $value | quote }}
+            - name: {{ $key }}
+              value: "{{ $value }}"
           {{- end }}
           {{- if .Values.enableHttpOpenTelemetryCollector }}
           - name: COLLECTOR_OTLP_ENABLED
